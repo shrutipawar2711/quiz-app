@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Show and hide multiple DIV using JavaScript</title>
+<style>
+.main_div{text-align:center; background: #00C492; padding:20px; }
+.inner_div{background: #fff; margin-top:20px; height: 200px; }
+.buttons a{font-size: 16px;}
+.buttons a:hover{cursor:pointer; font-size: 16px;}
+table{padding-left:40%;}
+</style>
+<script>
+    var divs = ["Menu1", "Menu2", "Menu3", "Menu4"];
+    var visibleDivId = null;
+    function toggleVisibility(divId) {
+      if(visibleDivId === divId) {
+        visibleDivId = null;
+      } else {
+        visibleDivId = divId;
+      }
+      hideNonVisibleDivs();
+    }
+    function hideNonVisibleDivs() {
+      var i, divId, div;
+      for(i = 0; i < divs.length; i++) {
+        divId = divs[i];
+        div = document.getElementById(divId);
+        if(visibleDivId === divId) {
+          div.style.display = "block";
+        } else {
+          div.style.display = "none";
+        }
+      }
+    }
+function showresult()
+{
+  alert("pass");
+}
+function startTime() {
+    var today = new Date();
+    var h = today.getHours();
+    var m = today.getMinutes();
+    var s = today.getSeconds();
+    m = checkTime(m);
+    s = checkTime(s);
+    document.getElementById('txt').innerHTML =
+    h + ":" + m + ":" + s;
+    var t = setTimeout(startTime, 500);
+}
+function checkTime(i) {
+    if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+    return i;
+}
+function show()
+{
+  alert("good");
+}
+</script>
+</head>
+<body onload="startTime(); setTimeout(function(){window.location = 'scoreboard.html';}, 10500)">
+<div style="padding-left:1200px">
+<div id="txt" style="background-color:Yellow;width:100%;"></div>
+</div>
+<div class="main_div">
+<div class="buttons">
+<a href="#" onclick="toggleVisibility('Menu1');">Q.1</a> | <a href="#" onclick="toggleVisibility('Menu2');">Q.2</a> | <a href="#" onclick="toggleVisibility('Menu3');">Q.3</a> | <a href="#" onclick="toggleVisibility('Menu4');">Q.4</a>
+</div>
+<div class="inner_div">
+<div id="Menu1">
+<div id="div1">
+   <h3>Q.1    HTML web pages can be read and rendered by _________.   </h3>
+ <table border="0">
+ <tr>
+  <td><input type="radio" name="ans1" value="A"><label for="HTML"> Compiler </label></td>
+  <td><input type="radio" name="ans1" value="B"><label for="HTML"> Server </label></td>
+ </tr>
+ <tr>
+  <td><input type="radio" name="ans1" value="C"><label for="HTML"> Web Browser </label></td>
+  <td><input type="radio" name="ans1" value="D"><label for="HTML"> Intepreter </label> </td>
+ </tr>
+ </table>
+</div>
+</div>
+<div id="Menu2" style="display: none;">
+<div id="div2">
+   <h3>Q.2    HTML uses _________.   </h3>
+ <table border="0">
+ <tr>
+  <td><input type="radio" name="ans1" value="A"><label for="HTML"> User defined tags </label></td>
+  <td><input type="radio" name="ans1" value="B"><label for="HTML"> Pre-specified tags </label></td>
+ </tr>
+ <tr>
+  <td><input type="radio" name="ans1" value="C"><label for="HTML"> Fixed tags defined by the language </label></td>
+  <td><input type="radio" name="ans1" value="D"><label for="HTML"> Tags only for linking </label> </td>
+ </tr>
+ </table>
+</div>
+</div>
+<div id="Menu3" style="display: none;">
+<div id="div3">
+   <h3>Q.3  The year in which HTML was first proposed _______. </h3>
+ <table border="0">
+ <tr>
+  <td><input type="radio" name="ans1" value="A"><label for="HTML"> A. 1990 </label></td>
+  <td><input type="radio" name="ans1" value="B"><label for="HTML"> B. 1980 </label></td>
+ </tr>
+ <tr>
+  <td><input type="radio" name="ans1" value="C"><label for="HTML"> C. 2000 </label></td>
+  <td><input type="radio" name="ans1" value="D"><label for="HTML"> D. 1995 </label> </td>
+ </tr>
+ </table>
+</div>
+</div>
+<div id="Menu4" style="display: none;">
+<div id="div4">
+   <h3>Q.4  Fundamental HTML Block is known as ___________. </h3>
+ <table border="0">
+ <tr>
+  <td><input type="radio" name="ans1" value="A"><label for="HTML"> A. HTML Body </label></td>
+  <td><input type="radio" name="ans1" value="B"><label for="HTML"> B HTML Tag </label></td>
+ </tr>
+ <tr>
+  <td><input type="radio" name="ans1" value="C"><label for="HTML"> C. HTML Attribute </label></td>
+  <td><input type="radio" name="ans1" value="D"><label for="HTML"> D. HTML Element </label> </td>
+ </tr>
+ </table>
+</div>
+
+</div>
+</div>
+</div>
+<div style="padding-left:500px">
+   <a href="scoreboard.html"> <input type="button"  value="Submit" style="width:200px"></a>
+</body>
+</html>
